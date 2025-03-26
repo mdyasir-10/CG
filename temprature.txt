@@ -1,0 +1,17 @@
+char degree = 176;
+int sensor= A0;
+
+void setup(){
+  pinMode(sensor, INPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  int tmp= analogRead(sensor);
+  float voltage= (tmp *5.0/1024);
+  float tempcel= (voltage-0.5)*100.0;
+  Serial.print(tempcel);
+  Serial.print(degree);
+  delay(1000);
+}
